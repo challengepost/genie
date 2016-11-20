@@ -20,7 +20,7 @@ development_cloudamqp: &development_cloudamqp
   <<: *default_config
   mq_vhost: platform.development
   mq_username: platform-development
-  mq_password: SIjWdXXXnaIeO14c7nnoVFjrvx2VKZmH
+  mq_password: <%= ENV.fetch("MQ_PASSWORD") %>
 
 development:
   # <<: *development_cloudamqp
@@ -35,8 +35,8 @@ test:
 
 production: &production
   <<: *default_config
-  mq_vhost: <%= ENV.fetch("MQ_VHOST") { "devpost.platform.production" } %>
-  mq_username: <%= ENV.fetch("MQ_USERNAME") { "platform-production" } %>
-  mq_password: <%= ENV.fetch("MQ_PASSWORD") { "8lB1wmdIzgalbrShk5xCurvH6R8ORtmz" } %>
+  mq_vhost: <%= ENV.fetch("MQ_VHOST") %>
+  mq_username: <%= ENV.fetch("MQ_USERNAME") %>
+  mq_password: <%= ENV.fetch("MQ_PASSWORD") %>
 
 staging: *production
