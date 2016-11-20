@@ -26,6 +26,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'neo4j'
 gem 'hutch'
 
+gem 'figleaf'
+
+gem 'puma'
+
+gem 'jwt'
+
+gem "satellite", github: "challengepost/satellite", branch: "master"
+gem "omniauth-devpost", github: "challengepost/omniauth-devpost", branch: "master"
+gem "addressable", "~> 2.4"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

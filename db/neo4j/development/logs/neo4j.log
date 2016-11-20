@@ -1,0 +1,32 @@
+2016-11-18 22:05:51.271+0000 INFO  Starting...
+2016-11-18 22:05:52.309+0000 INFO  Bolt enabled on localhost:7472.
+2016-11-18 22:05:54.828+0000 INFO  Started.
+2016-11-18 22:05:56.035+0000 INFO  Remote interface available at http://localhost:7474/
+2016-11-18 22:12:19.501+0000 INFO  Neo4j Server shutdown initiated by request
+2016-11-18 22:12:19.513+0000 INFO  Stopping...
+2016-11-18 22:12:19.546+0000 INFO  Stopped.
+2016-11-18 22:12:25.949+0000 INFO  Starting...
+2016-11-18 22:12:26.692+0000 INFO  Bolt enabled on localhost:7472.
+2016-11-18 22:12:28.763+0000 INFO  Started.
+2016-11-18 22:12:29.638+0000 INFO  Remote interface available at http://localhost:7474/
+2016-11-18 23:50:29.949+0000 INFO  Neo4j Server shutdown initiated by request
+2016-11-18 23:50:29.963+0000 INFO  Stopping...
+2016-11-18 23:50:29.988+0000 INFO  Stopped.
+2016-11-19 00:37:58.878+0000 INFO  Starting...
+2016-11-19 00:38:00.078+0000 INFO  Bolt enabled on localhost:7472.
+2016-11-19 00:38:04.141+0000 INFO  Started.
+2016-11-19 00:38:05.365+0000 INFO  Remote interface available at http://localhost:7474/
+2016-11-19 03:50:07.817+0000 INFO  Neo4j Server shutdown initiated by request
+2016-11-19 03:50:07.831+0000 INFO  Stopping...
+2016-11-19 03:50:07.855+0000 INFO  Stopped.
+2016-11-19 15:54:42.806+0000 INFO  Starting...
+2016-11-19 15:54:43.802+0000 INFO  Bolt enabled on localhost:7472.
+2016-11-19 15:54:46.768+0000 INFO  Started.
+2016-11-19 15:54:47.842+0000 INFO  Remote interface available at http://localhost:7474/
+2016-11-20 05:42:40.099+0000 INFO  Neo4j Server shutdown initiated by request
+2016-11-20 05:42:40.134+0000 INFO  Stopping...
+2016-11-20 05:42:40.183+0000 INFO  Stopped.
+2016-11-20 16:19:33.531+0000 INFO  Starting...
+2016-11-20 16:19:34.421+0000 INFO  Bolt enabled on localhost:7472.
+2016-11-20 16:19:37.228+0000 INFO  Started.
+2016-11-20 16:19:38.174+0000 INFO  Remote interface available at http://localhost:7474/

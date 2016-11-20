@@ -1,0 +1,42 @@
+default_config: &default_config
+  autoload_rails: true
+  enable_http_api_use: false
+  mq_api_host: fast-porcupine.rmq.cloudamqp.com
+  mq_api_ssl: true
+  mq_host: fast-porcupine.rmq.cloudamqp.com
+
+development_local: &development_local
+  <<: *default_config
+  mq_host: localhost
+  mq_api_host: localhost
+  mq_vhost: ''
+  mq_username: guest
+  mq_password: guest
+  mq_api_ssl: false
+
+  # uses default rabbitmq config
+
+development_cloudamqp: &development_cloudamqp
+  <<: *default_config
+  mq_vhost: platform.development
+  mq_username: platform-development
+  mq_password: SIjWdXXXnaIeO14c7nnoVFjrvx2VKZmH
+
+development:
+  # <<: *development_cloudamqp
+  <<: *development_local
+
+test:
+  <<: *default_config
+  mq_host: amqp.tld
+  mq_vhost: vhost-test
+  mq_username: platform-test
+  mq_password: abcdef
+
+production: &production
+  <<: *default_config
+  mq_vhost: <%= ENV.fetch("MQ_VHOST") { "devpost.platform.production" } %>
+  mq_username: <%= ENV.fetch("MQ_USERNAME") { "platform-production" } %>
+  mq_password: <%= ENV.fetch("MQ_PASSWORD") { "8lB1wmdIzgalbrShk5xCurvH6R8ORtmz" } %>
+
+staging: *production
