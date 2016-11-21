@@ -17,3 +17,5 @@
 /tmp
 
 .envrc
+
+/db/neo4j
