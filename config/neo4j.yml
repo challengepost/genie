@@ -6,6 +6,9 @@ test:
   type: server_db
   url: http://localhost:7575
 
-production:
+production: &production
   type: server_db
-  url: http://<%= ENV["NEO4J_PATH"] %>@localhost:7000
+  url: <%= ENV["GRAPHENEDB_URL"] %>
+
+staging:
+  <<: *production
