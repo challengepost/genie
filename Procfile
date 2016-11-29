@@ -1,2 +1,2 @@
-web: RAILS_ENV=development be rails s
+web: RAILS_ENV=development bundle exec rails s
 hutch: bundle exec hutch -v
