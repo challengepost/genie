@@ -18,6 +18,10 @@ module Concerns
       def import_batch(batch)
         batch.each { |message| import_model(message) }
       end
+
+      def remove(message)
+      end
+      alias_method :remove_model, :remove
     end
   end
 end

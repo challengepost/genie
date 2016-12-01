@@ -7,7 +7,7 @@ class JobsController < ApplicationController
   attr_accessor :user, :job
 
   def similar_jobs
-    jobs = Recommendations::Job.new(job).for(user).similar_jobs
+    jobs = Recommendations::Job.new(job).for(user).similar_jobs(params[:limit].to_i)
     render json: jobs.to_json
   end
 
