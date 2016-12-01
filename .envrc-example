@@ -7,3 +7,5 @@ export OMNIAUTH_PROVIDER_SITE="https://devpost.dev"
 export JWT_SECRET_KEY_BASE="somesecretkey"
 
 export MQ_PASSWORD=some_mq_password
+export MQ_USERNAME=""
+export MQ_VHOST=""

@@ -6,9 +6,16 @@ class ApplicationController < ActionController::Base
   protected
 
   def authorize!
-    jwt_user = Satellite::JWTUserDecoder.new(Satellite::UserCookie.new(cookies).to_cookie)
-    unless jwt_user.user_uid.present?
+    unless current_neo_user.present?
       render json: { error: "Invalid JWT token" }
     end
+  end
+
+  def jwt_user
+    @jwt_user ||= Satellite::JWTUserDecoder.new(Satellite::UserCookie.new(cookies).to_cookie)
+  end
+
+  def current_neo_user
+    @current_neo_user ||= User.find_by(uid: jwt_user.user_uid)
   end
 end

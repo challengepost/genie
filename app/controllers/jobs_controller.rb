@@ -18,6 +18,6 @@ class JobsController < ApplicationController
   end
 
   def find_user
-    self.user = nil
+    self.user = current_neo_user
   end
 end
