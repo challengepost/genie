@@ -19,14 +19,16 @@ module Recommendations
       job_query = job.query_as(:job).
         # match Jobs which received applications from users who also also applied to the given job
         match("(job:Job) <-[:APPLIED_TO]- (similarUser:User) -[:APPLIED_TO]-> (recommendedJob:Job)").
-        match("(recommendedJob) <-[applications:APPLIED_TO]- ()")
+        # match all the applications to recommended jobs, so that we can order them by application count
+        match("(recommendedJob) <-[applications:APPLIED_TO]- ()").
+        where("recommendedJob.dev_type" => job.dev_type).
+        where_not("recommendedJob.deleted" => true).
+        where_not("recommendedJob.uid" => job.uid)
 
         if user.present?
           job_query = job_query.
             match(currentUser: { User: { uid: user.uid.to_s } }).
-            where_not("(currentUser) -[:APPLIED_TO]-> (recommendedJob)").
-            where_not("recommendedJob.uid" => job.uid).
-            where_not("recommendedJob.deleted" => true)
+            where_not("(currentUser) -[:APPLIED_TO]-> (recommendedJob)")
         end
 
         job_query = job_query.
