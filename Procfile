@@ -1,2 +1,2 @@
-web: RAILS_ENV=development bundle exec rails s
+web: bundle exec puma -C config/puma.rb
 hutch: bundle exec hutch -v
