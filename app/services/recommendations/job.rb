@@ -19,7 +19,7 @@ module Recommendations
       job_query = job.query_as(:job).
         # match Jobs which received applications from users who also also applied to the given job
         match("(job:Job) <-[:APPLIED_TO]- (similarUser:User) -[:APPLIED_TO]-> (recommendedJob:Job)").
-        break.
+        with("recommendedJob", "similarUser").
         # match all the applications to recommended jobs,
         # so that we can order them by application count
         match("(recommendedJob) <-[applications:APPLIED_TO]- ()").
