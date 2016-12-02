@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_neo_user
-    @current_neo_user ||= User.find_by(uid: jwt_user.user_uid)
+    @current_neo_user ||= User.find_by(uid: jwt_user.user_uid.to_s)
   end
 end

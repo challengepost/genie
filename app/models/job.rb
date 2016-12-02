@@ -5,16 +5,17 @@ class Job
   property :uid, constraint: :unique
   property :title
   property :dev_type
-  property :deleted
+  property :deleted, default: false
 
   has_many :in, :applicants, type: "APPLIED_TO",
     model_class: "User"
 
   def self.import_model(message)
-    job = find_or_create(uid: message[:id])
-    job.title = message[:title]
-    job.dev_type = message[:dev_type]
-    job.save
+    job = find_or_create_by(uid: message[:id])
+    job.update(
+      title: message[:title],
+      dev_type: message[:dev_type]
+    )
   end
 
   def self.remove_model(message)
