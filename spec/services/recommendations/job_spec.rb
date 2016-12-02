@@ -63,7 +63,11 @@ describe Recommendations::Job do
       similar_jobs = subject.similar_jobs(5)
       similar_job_ids = similar_jobs.map { |job| job.first.uid }
 
-      expect(similar_job_ids).to match([first_job.id, second_job.id, third_job.id])
+      expect(similar_job_ids).to match([
+        first_job.uid,
+        second_job.uid,
+        third_job.uid
+      ])
     end
   end
 end
