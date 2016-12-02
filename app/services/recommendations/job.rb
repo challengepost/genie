@@ -24,18 +24,18 @@ module Recommendations
         # so that we can order them by application count
         match("(recommendedJob) <-[applications:APPLIED_TO]- ()").
         # recommended jobs' role has to be the same as the given job
-        where("recommendedJob.dev_type" => job.dev_type).
+        where(recommendedJob: { dev_type: job.dev_type }).
         # makes sure we don't recommend the given job
-        where_not("recommendedJob.uid" => job.uid).
+        where_not(recommendedJob: { uid: job.uid }).
         # deleted jobs can be useful for other recommendations
         # (as links between other entities), but not here.
         where("recommendedJob.deleted <> true OR NOT EXISTS(recommendedJob.deleted)")
 
         if user.present?
           # excludes the jobs the user applied to
-          job_query = job_query.where_not(
-            "(:User { uid: '#{user.uid}' }) -[:APPLIED_TO]-> (recommendedJob)"
-          )
+          job_query = job_query.
+            match(currentUser: { User: { uid: user.uid.to_s } }).
+            where_not("(currentUser) -[:APPLIED_TO]-> (recommendedJob)")
         end
 
         job_query = job_query.
