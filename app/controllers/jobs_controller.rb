@@ -1,6 +1,4 @@
 class JobsController < ApplicationController
-  # before_action :authorize!
-
   before_action :find_user
   before_action :find_job
 
