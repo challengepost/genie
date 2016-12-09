@@ -26,7 +26,10 @@ module Recommendations
         # recommended jobs' role has to be the same as the given job
         where(recommendedJob: { dev_type: job.dev_type }).
         # makes sure we don't recommend the given job.
-        where_not(recommendedJob: { uid: job.uid, deleted: true, state: "draft" })
+        where_not(recommendedJob: { uid: job.uid }).
+        # makes sure we don't recommend deleted or draft jobs
+        where_not(recommendedJob: { deleted: true }).
+        where_not(recommendedJob: { state: "draft" })
 
         if user.present?
           # excludes the jobs the user applied to
