@@ -8,8 +8,7 @@ class Job
   property :deleted, default: false
   property :state, default: "draft"
 
-  has_many :in, :applicants, type: "APPLIED_TO",
-    model_class: "User"
+  has_many :in, :applicants, rel_class: :JobApplication
 
   def self.import_model(message)
     job = find_or_create_by(uid: message[:id])
