@@ -6,6 +6,7 @@ class Job
   property :title
   property :dev_type
   property :deleted, default: false
+  property :state, default: "draft"
 
   has_many :in, :applicants, type: "APPLIED_TO",
     model_class: "User"
@@ -14,7 +15,8 @@ class Job
     job = find_or_create_by(uid: message[:id])
     job.update(
       title: message[:title],
-      dev_type: message[:dev_type]
+      dev_type: message[:dev_type],
+      state: message[:state]
     )
   end
 

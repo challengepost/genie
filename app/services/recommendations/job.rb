@@ -25,11 +25,8 @@ module Recommendations
         match("(recommendedJob) <-[applications:APPLIED_TO]- ()").
         # recommended jobs' role has to be the same as the given job
         where(recommendedJob: { dev_type: job.dev_type }).
-        # makes sure we don't recommend the given job
-        where_not(recommendedJob: { uid: job.uid }).
-        # deleted jobs can be useful for other recommendations
-        # (as links between other entities), but not here.
-        where("recommendedJob.deleted <> true OR NOT EXISTS(recommendedJob.deleted)")
+        # makes sure we don't recommend the given job.
+        where_not(recommendedJob: { uid: job.uid, deleted: true, state: "draft" })
 
         if user.present?
           # excludes the jobs the user applied to
