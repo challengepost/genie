@@ -25,7 +25,12 @@ module Genie
     config.active_record.raise_in_transactional_callbacks = true
 
     Figleaf::Settings.configure_with_auto_define do |s|
-      s.env = Rails.env
+      s.env = if Rails.env.test?
+        Rails.env
+      else
+        ENV.fetch("LOGICAL_ENV", Rails.env)
+      end
+
       s.load_settings
     end
   end

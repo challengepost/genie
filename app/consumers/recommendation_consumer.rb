@@ -1,10 +1,10 @@
 class RecommendationConsumer
   include Hutch::Consumer
 
-  consume "copro.recommendations.*"
+  consume "copro.recommendations.*.*"
 
   def process(message)
-    action, model_name = message.routing_key.split(".").last.split(":")
+    action, model_name = message.routing_key.split(".").last(2)
     model_class = model_name.classify.constantize
 
     case action
