@@ -6,6 +6,8 @@ class JobApplication
   to_class :Job
   type 'APPLIED_TO'
 
+  creates_unique :none
+
   def self.import_model(message)
     job = Job.find_by(uid: message[:job_id])
     user = User.find_by(uid: message[:user_uid])
