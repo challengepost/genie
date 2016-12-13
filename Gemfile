@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
+ruby "2.1.10"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem "rails", "~> 4.2.6"
+# Use Postgres as the database for Active Record
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -26,6 +27,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'neo4j'
 gem 'hutch'
 
+gem 'figleaf'
+
+gem 'puma'
+
+gem 'jwt'
+
+gem "satellite", github: "challengepost/satellite", branch: "master"
+gem "omniauth-devpost", github: "challengepost/omniauth-devpost", branch: "master"
+gem "addressable", "~> 2.4"
+
+gem "honeybadger", "~> 2.0"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -38,6 +51,10 @@ gem 'hutch'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  gem "rspec"
+  gem "rspec-rails", "~> 3.5"
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :development do
@@ -48,3 +65,7 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem "capybara", "~> 2.7"
+  gem "launchy"
+end

@@ -1,0 +1,11 @@
+export OMNIAUTH_PROVIDER_KEY=provider_key_from_doorkeeper_admin
+export OMNIAUTH_PROVIDER_SECRET=provider_secret_from_doorkeeper_admin
+export OMNIAUTH_TOKEN_URL="https://oauth.devpost.dev/oauth/token"
+export OMNIAUTH_AUTHORIZE_URL="https://oauth.devpost.dev/oauth/authorize"
+export OMNIAUTH_PROVIDER_SITE="https://devpost.dev"
+
+export JWT_SECRET_KEY_BASE="somesecretkey"
+
+export MQ_PASSWORD=some_mq_password
+export MQ_USERNAME=""
+export MQ_VHOST=""

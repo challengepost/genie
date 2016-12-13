@@ -1,0 +1,1 @@
+class UnsupportedModelError < StandardError; end
