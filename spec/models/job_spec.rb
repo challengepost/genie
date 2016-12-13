@@ -33,7 +33,7 @@ describe Job do
       expect(job.uid).to eq 1
       expect(job.title).to eq "Title 2"
       expect(job.dev_type).to eq 3
-      expect(job.dev_type).to eq "draft"
+      expect(job.state).to eq "draft"
     end
   end
 
